@@ -18,6 +18,7 @@ const shotCountSchema=new mongoose.Schema({
 
 const ShotCount=mongoose.model('shotCount',shotCountSchema);
 
+
 async function setShotCount(name, shot){
     const shotCount=new ShotCount({name: name, totalShot: shot});
     try{
@@ -28,14 +29,14 @@ async function setShotCount(name, shot){
     }
 }
 
-async function getAllCount(){
+// async function getAllCount(){
 
-}
+// }
 
-async function getCount(){
+// async function getCount(){
 
-}
+// }
 
-
-module.exports = setShotCount;
+exports.shotCountSchema=shotCountSchema;
+exports.ShotCount=ShotCount;
 
