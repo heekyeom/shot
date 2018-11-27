@@ -1,0 +1,4 @@
+.ui.middle.aligned.divided.list{
+    /* background-image: "/images/main_background.jpg"; */
+    background-image: "url(" + "/images/main_background2.jpg" + ")";
+}
