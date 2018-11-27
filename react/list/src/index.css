@@ -1,0 +1,19 @@
+.listpage {
+    margin:15px;
+    padding:30px;
+    position:relative;
+    z-index:1;
+}
+.listpage:after{
+    background-image: url("/images/main_background.jpg");
+    top:0;
+    left:0;
+    position:absolute;
+    background-size:100%;
+    opacity:0.4!important;
+    filter:alpha(opacity=40);
+    z-index:-1;
+    content:"";
+    width:100%;
+    height:100%;
+}

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import List from "./List";
 import Search from "./Search";
 import Bottom from "./Bottom";
-import './List.css';
+import './index.css';
 
 
 
