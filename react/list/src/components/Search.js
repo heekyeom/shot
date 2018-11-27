@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 const Search = props => {
     return (
         <div class="ui right aligned category search">

@@ -3,8 +3,6 @@ import { List } from 'semantic-ui-react'
 
 const Shot_list = (props) => {
   
-  
-  
   return(
 
     <List selection verticalAlign='middle'>
