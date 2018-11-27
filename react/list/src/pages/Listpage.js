@@ -1,20 +1,18 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import Shot_list from "./Shot_list";
-import Search from "./Search";
-import Toggle from "./Toggle";
-import './App.css';
+import React from "react";
+import Shot_list from "../components/Shot_list";
+import Search from "../components/Search";
+import Toggle from "../components/Toggle";
+
 
 
 
 //app.use(express.static('public'));
 
-class App extends React.Component {
+class listpage extends React.Component {
     constructor (props) {
         super(props);
 
         this.state ={
-           
         };
     }
 
@@ -31,4 +29,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default listpage;
