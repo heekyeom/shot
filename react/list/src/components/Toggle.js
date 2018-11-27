@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from "react";
 
-const Bottom = props => {
+const Toggle = props => {
     return (
         <div class="ui toggle checkbox">
                 <input type="checkbox" name="public"></input>
@@ -9,5 +9,5 @@ const Bottom = props => {
     );
 }
 
-export default Bottom;
+export default Toggle;
     
