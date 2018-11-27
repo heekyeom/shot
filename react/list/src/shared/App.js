@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Listpage from "../pages/Listpage";
 import './App.css';
 
