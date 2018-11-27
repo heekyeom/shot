@@ -1,0 +1,33 @@
+* {
+  cursor: none;
+}
+body {
+  background: linear-gradient(320deg, #2ecc71 15%, #2980b9 85%) fixed;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid #000;
+  position: absolute;
+  border-radius: 15px;
+}
+
+.bullet{
+  position: absolute;
+  pointer-events: none;
+}
+
+.cursor {
+  position: absolute;
+  pointer-events: none;
+  /* transform: translateX(-50%) translateY(-50%); */
+}
+.cursor:nth-child(1) {
+  background-color: red;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  z-index: 1;
+}
