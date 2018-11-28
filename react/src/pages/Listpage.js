@@ -2,6 +2,7 @@ import React from "react";
 import Shot_list from "../components/Shot_list";
 import Search from "../components/Search";
 import Toggle from "../components/Toggle";
+import Test from "../components/Test";
 
 
 
@@ -24,6 +25,7 @@ class listpage extends React.Component {
             <Search/>
             <Shot_list/>
             <Toggle/>
+            <Test/>
             </div>
         );
     }
