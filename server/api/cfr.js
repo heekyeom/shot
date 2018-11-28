@@ -1,6 +1,5 @@
 const request = require("request");
 const fs = require("fs");
-const axios=require("axios");
 
 const shotCount=require('../models/celebrity'); 
 
