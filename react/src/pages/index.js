@@ -1,2 +1,3 @@
-export { default as Listpage } from './Listpage';
-export { default as Shot_detail } from './Shot_detail';
+export { default as List } from './List';
+export { default as ShotDetail } from './ShotDetail';
+export { default as Setting } from './Setting';

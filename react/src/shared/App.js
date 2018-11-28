@@ -1,5 +1,5 @@
 import React from "react";
-import { Listpage, Shot_detail } from '../pages/index';
+import { List, ShotDetail,Setting } from '../pages/index';
 import { Route } from 'react-router-dom';
 
 
@@ -18,8 +18,9 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Route exact path="/" component={Listpage}/>
-                <Route path="/Shot_detail" component={Shot_detail}/>
+                <Route exact path="/" component={List}/>
+                <Route exact path="/ShotDetail" component={ShotDetail}/>
+                <Route exact path="/Setting" component={Setting}/>
             </div>
             
         );
