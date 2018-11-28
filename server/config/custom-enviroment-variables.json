@@ -1,0 +1,5 @@
+{
+    "DB":{
+        "mongoURI":"MONGO_URI"
+    }
+}

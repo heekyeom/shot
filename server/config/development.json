@@ -1,0 +1,6 @@
+{
+    "name": "SHOT-DEV",
+    "DB": {
+        "mongoURI": "mongodb://khk2870:!gmlrua2870@ds217864.mlab.com:17864/shot-dev"
+    }
+}
