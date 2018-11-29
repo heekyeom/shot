@@ -18,13 +18,14 @@ export const requestRecognition=async(img)=>{
 }
 
 //모든 사람 랭킹 요청
+//10초 주기로 서버에 요청한다.
 export const requestAllRanking=async()=>{
     const result=await axios.get('/rank');
     console.log(result);
 }
 
 //특정인 랭킹 요청
-export const requestRanking=async(id)=>{
+export const requestRanking=async(name)=>{
     const result=await axios.get(`/rank/${id}`);
     console.log(result);
 }

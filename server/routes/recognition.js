@@ -4,14 +4,22 @@ const router = express.Router();
 const request = require('request');
 
 const cfr = require('../api/cfr');
-const { setCelebrityCount }=require('../models/celebrity');
+const { setCelebrityCount }=require('../models/dbAction');
 
 
 /* 얼굴 인식을 요청 받음. */
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     console.log(`${new Date().toLocaleString()} -> method post : /recognition  `);
+    let img;
 
-    const img = req.file.buffer;
+    if(!req.file){
+        const imgUrl=req.body.image;
+        console.log(imgUrl);
+        img=await request.get(imgUrl);
+    }
+    else {
+       img = req.file.buffer;
+    }
 
     //api로 이미지를 전송하기 위해 formdata로 설정.
     const _formData = {
@@ -35,5 +43,7 @@ router.post('/', (req, res) => {
         }
     }).pipe(res);
 })
+
+
 
 module.exports = router;
