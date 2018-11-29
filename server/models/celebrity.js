@@ -35,8 +35,8 @@ const Celebrity = mongoose.model('shotCount', celebritySchema);
 async function setCelebrityCount(name) {
     try {
         //DB에서 해당 이름에 해당하는 document가 있는지 확인.
-        let result=await Celebrity.find({name: name});
-        
+        let result=await Celebrity.findOne({name: name});
+
         //만약 없다면 새로운 document를 만든다.
         if(!result) result=new Celebrity({name: name, totalShot:1});
         else result.totalShot+=1;
@@ -51,12 +51,15 @@ async function setCelebrityCount(name) {
 }
 
 
-async function getAllCount() {
-
+async function getAllRank() {
+    const allRank=await Celebrity.find();
+    console.log(allRank);
+    return allRank;
 }
 
-async function getCount() {
-
+async function getRank(id) {
+    const Rank=await Celebrity.findOne({ _id: id });
+    return Rank;
 }
 
 async function getCelebrityDetail() {
@@ -66,7 +69,7 @@ async function getCelebrityDetail() {
 exports.celcbritySchema = celebritySchema;
 exports.celebrity = Celebrity;
 exports.setCelebrityCount=setCelebrityCount;
-exports.getAllCount=getAllCount;
-exports.getCount=getCount;
+exports.getAllRank=getAllRank;
+exports.getRank=getRank;
 exports.getCelebrityDetail=getCelebrityDetail;
 
