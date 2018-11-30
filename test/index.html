@@ -8,8 +8,6 @@
   </head>
 
   <body>
-        <div class="cursor"></div>
-        <img class="cursor" src="../resource/pistol1.png"></img>
     <!-- main GIF -->
     <div id="main-area" class="container container-padding50"></div>
     <!-- 검색 창 -->
@@ -24,32 +22,49 @@
     <script src="./gif_tv.js"></script>
 
     <script>
-      document.onmousedown = animateCircles; // circle follow mouse
-      document.onmousemove = animateGun;
-      
-    
       window.onkeydown = function() {
         console.log(event.keyCode);
+        if (event.keyCode === 18 && !document.querySelectorAll('.cursor').length) {
+          document.body.style.cursor='none';
+          const point = document.createElement("div");
+          const gun = document.createElement("img");
+          point.setAttribute("class", "cursor target-point");
+          gun.setAttribute("class", "cursor");
+          gun.setAttribute("src", "./pistol.png");
+          gun.style.zIndex = 1;
+          document.body.appendChild(point);
+          document.body.appendChild(gun);
+          document.onmousedown = animateCircles; // circle follow mouse
+          document.onmousemove = animateGun;
+        }
+      };
+      window.onkeyup = function() {
+        console.log(event.keyCode);
         if (event.keyCode === 18) {
+          document.body.style.cursor='default';
+          document.onmousedown = null;
+          document.onmousemove = null;
+          const a=document.querySelectorAll('.cursor');
+          a[0].remove();
+          a[1].remove();
         }
       };
       const bullets = ["bullet1", "bullet2", "bullet3", "bullet4"];
-      
-      function animateGun(event){
-          const point=document.querySelectorAll('.cursor');
-          point[0].style.left=event.clientX+"px";
-          point[0].style.top=event.clientY+"px";
-          
-            point[1].style.left=event.pageX+100+"px";
-            point[1].style.top=event.pageY+100+"px";
-          
+
+      function animateGun(event) {
+        const point = document.querySelectorAll(".cursor");
+        point[0].style.left = event.clientX + "px";
+        point[0].style.top = event.clientY + "px";
+
+        point[1].style.left = event.pageX + 100 + "px";
+        point[1].style.top = event.pageY + 100 + "px";
       }
       function animateCircles(event) {
         // randomize color
         // const bulletImg = bullets[Math.floor(Math.random() * bullets.length)];
         const bullet = document.createElement("img");
         bullet.setAttribute("class", "bullet");
-        bullet.setAttribute("src", `../resource/${bullets[1]}.png`);
+        bullet.setAttribute("src", `bullet.png`);
         bullet.style.width = "70px";
         bullet.style.height = "70px";
         document.body.appendChild(bullet); // adds function to body

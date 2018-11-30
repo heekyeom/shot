@@ -1,4 +1,4 @@
-const { celebritySchema, Celebrity } = require("../models/celebrity");
+const { Celebrity } = require("../models/celebrity");
 
 async function setCelebrityCount(name) {
   try {

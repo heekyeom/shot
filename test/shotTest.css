@@ -1,6 +1,4 @@
-* {
-  cursor: none;
-}
+
 body {
   background: linear-gradient(320deg, #2ecc71 15%, #2980b9 85%) fixed;
 }
@@ -24,7 +22,7 @@ body {
   pointer-events: none;
   /* transform: translateX(-50%) translateY(-50%); */
 }
-.cursor:nth-child(1) {
+.cursor.target-point {
   background-color: red;
   height: 10px;
   width: 10px;
