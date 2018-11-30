@@ -8,7 +8,7 @@ class Setting extends Component {
   render() {
     return (
       <div>
-        <BreadcrumbExampleLargeSize/>
+        <BreadcrumbExampleLargeSize page={this.props.page}/>
         <TransitionExampleSingleExplorer/>
         <About/>
       </div>

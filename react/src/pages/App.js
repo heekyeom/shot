@@ -13,22 +13,15 @@ class App extends React.Component {
 
         this.state = {
             page: 'Home', // 아모른직다, but 들어온다.
-            //list
-            rank: '',
-            //
+            rank: [],
         };
 
         // this._changeToChild =this._changeToChild.bind(this);
         // this._changeFromChild = this._changeFromChild.bind(this);
     }
-    changeSettingPage=()=>{
+    changePage=(what)=>{
         this.setState ({
-            page : 'Setting'
-        })
-    }
-    changeDetailPage=()=>{
-        this.setState ({
-            page : 'ShotDetail'
+            page : what
         })
     }
 
@@ -38,9 +31,9 @@ class App extends React.Component {
             case 'Home':
                 return <Home page={this.changePage}/>
             case 'ShotDetail':
-                return <ShotDetail page={this.changeDetailPage}/>
+                return <ShotDetail page={this.changePage}/>
             case 'Setting':
-                return <Setting page={this.changeSettingPage}/>
+                return <Setting page={this.changePage}/>
         }
     }
 
