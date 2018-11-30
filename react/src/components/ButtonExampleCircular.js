@@ -1,6 +1,13 @@
-import React from 'react'
+
 import { Button } from 'semantic-ui-react'
 
-const ButtonExampleCircular = () => <Button href="/Setting" icon='settings' size="big" />
+import React, { Component } from 'react'
 
-export default ButtonExampleCircular
+export default class ButtonExampleCircular extends Component {
+    render() {
+    return (
+        <Button onClick={this.props.page} icon='settings' size="big" />
+    )
+  }
+}
+

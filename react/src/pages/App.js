@@ -12,31 +12,41 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            page: null, // 아모른직다, but 들어온다.
+            page: 'Home', // 아모른직다, but 들어온다.
+            //list
+            rank: '',
+            //
         };
 
         // this._changeToChild =this._changeToChild.bind(this);
         // this._changeFromChild = this._changeFromChild.bind(this);
     }
+    changeSettingPage=()=>{
+        this.setState ({
+            page : 'Setting'
+        })
+    }
+    changeDetailPage=()=>{
+        this.setState ({
+            page : 'ShotDetail'
+        })
+    }
 
     handlePage() {
+        console.log(this.state.page);
         switch (this.state.page) {
-            case null:
-                return <Home />
+            case 'Home':
+                return <Home page={this.changePage}/>
             case 'ShotDetail':
-                return <ShotDetail />
+                return <ShotDetail page={this.changeDetailPage}/>
             case 'Setting':
-                return <Setting />
+                return <Setting page={this.changeSettingPage}/>
         }
     }
 
     render() {
         return (
             <div>
-                <Home />
-                <Route exact path="/" component={Home} />
-                <Route exact path="/ShotDetail" component={ShotDetail} />
-                <Route exact path="/Setting" component={Setting} />
                 {this.handlePage()}
             </div>
         );
