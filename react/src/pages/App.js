@@ -19,6 +19,7 @@ class App extends React.Component {
         // this._changeToChild =this._changeToChild.bind(this);
         // this._changeFromChild = this._changeFromChild.bind(this);
     }
+    
     changePage=(what)=>{
         this.setState ({
             page : what
