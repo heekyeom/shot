@@ -21,10 +21,15 @@
     height:70%;
 }
 
-.Shot_detail{
+.ShotDetail{
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 0px;
     margin-bottom: 5px;
     padding: 10px;
+}
+
+
+.preblack{
+    color:black;    
 }

@@ -2,7 +2,7 @@ const express =require('express');
 const qs=require('querystring');
 const router=express.Router();
 
-const { getAllRank, getRank }=require('../models/dbAction')
+const { getAllRank, getRank }=require('../data_access/dbAction')
 
 //전체 유저의 랭킹
 router.get('/',(req, res)=>{

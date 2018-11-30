@@ -1,10 +1,11 @@
+const config = require('config');
+const request = require('request');
 const express = require('express');
 const router = express.Router();
 
-const request = require('request');
 
 const cfr = require('../api/cfr');
-const { setCelebrityCount }=require('../models/dbAction');
+const { setCelebrityCount }=require('../data_access/dbAction');
 
 
 /* 얼굴 인식을 요청 받음. */
@@ -14,7 +15,6 @@ router.post('/', async (req, res) => {
 
     if(!req.file){
         const imgUrl=req.body.image;
-        console.log(imgUrl);
         img=await request.get(imgUrl);
     }
     else {
@@ -26,10 +26,11 @@ router.post('/', async (req, res) => {
         image: 'image',
         image: img
     };
+    console.log(config.faceRecognition.naverClova.url);
     
     //api로 전송.
     request.post({
-        url: cfr.CRF_API_URL,
+        url: cfr.API_URL,
         formData: _formData,
         headers: {
             "X-Naver-Client-Id": cfr.CLIENT_ID,

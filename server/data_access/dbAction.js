@@ -1,4 +1,4 @@
-const { celebritySchema, Celebrity } = require("./celebrity");
+const { celebritySchema, Celebrity } = require("../models/celebrity");
 
 async function setCelebrityCount(name) {
   try {
@@ -22,33 +22,43 @@ async function setCelebrityCount(name) {
 function getAllRank() {
     console.log(`${new Date().toLocaleString()} -> getAllRank`);
 
-  return allRank;
+  return top10;
 }
 
 async function getRank(name) {
   console.log(`${new Date().toLocaleString()} -> getRank`);
-  const Rank = await Celebrity.findOne({ name: name });
-  return Rank;
+  const rank = await Celebrity.findOne({ name: name }).select({ name: 1, dailyShot: 1}); //없으면 null
+  if(rank){
+    rank.dailyShot=rank.dailyShot[new Date().getDate()];
+  }
+
+  return rank;
 }
 
-async function getDetail() {
+async function getDetail(name) {
   console.log(`${new Date().toLocaleString()} -> getDetail`);
-  celebrity = await Celebrity.findOne({ name: name });
+  celebrity = await Celebrity.findOne({ name: name });  //없으면 null
   return celebrity;
 }
 
-let allRank;
+let top10;
 
 setInterval(() => {
   AllRank();
-}, 10000);
+}, 20000);
 
 async function AllRank() {
-    const key=`dailyShot[${new Date().getDate()}]`;
-  allRank = await Celebrity.find().select('name', 'dailyShot');
-  return allRank;
+  let all = await Celebrity.find().select({ name: 1, dailyShot: 1});
+  all.find((one)=>{
+    one.dailyShot=one.dailyShot[new Date().getDate()]
+  })
+  all.sort((a,b)=>{
+    return b.dailyShot[0]-a.dailyShot[0];
+  })
+  
+  top10=all.slice(0,10);
 }
-
+AllRank()
 
 function createCelebrity(result,name){
     result = new Celebrity({

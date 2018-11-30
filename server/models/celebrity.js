@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/shot', { useNewUrlParser: true })
-    .then(() => console.log(`Connected to mongoDB`))
-    .catch(error => console.error(error.message));
 
 /* model */
 const celebritySchema = new mongoose.Schema({

@@ -24,6 +24,7 @@ export default class ProgressExampleIndicating extends Component {
     this.setState({
       percent: 0 < this.state.percent ? this.state.percent - 1 : 100,
     })
+    
   render() {
     return (
       <div>
