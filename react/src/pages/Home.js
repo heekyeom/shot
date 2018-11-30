@@ -19,7 +19,7 @@ class Home extends React.Component {
                 <ButtonExampleCircular page={this.props.page}/>
                 <Search />
                 <DividerBar />
-                <ListExampleSelection />
+                <ListExampleSelection page={this.props.page}/>
                 <DividerBar />
                 <Toggle />
             </div>
