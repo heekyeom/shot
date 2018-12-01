@@ -37,6 +37,22 @@
     padding: 10px;
 }
 
+.SettingButton
+{
+    float: right;
+    margin-top: -40px;
+}
+
+.ui.input {
+    width: 270px;
+}
+
 .preblack{
-    color:black;    
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ui.statistic>.value, .ui.statistics .statistic>.value{
+    font-size: 3rem!important;
+
 }

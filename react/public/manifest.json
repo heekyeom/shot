@@ -5,7 +5,7 @@
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "React Ext",
-    "default_icon":"test.jpg"
+    "default_icon":"logo.png"
   },
   "version": "1.0",
 

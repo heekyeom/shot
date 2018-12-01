@@ -5,7 +5,7 @@ const Search = props => {
     return (
         <div class="ui right aligned category search">
             <div class="ui icon input">
-                <input class="prompt" type="text" placeholder="Search animals..." />
+                <input class="prompt" type="text" placeholder="Search targeting..." />
                 <i class="search icon"></i>
             </div>
             <div class="results"></div>
