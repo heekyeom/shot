@@ -1,6 +1,8 @@
 const { Celebrity } = require("../models/celebrity");
+const config=require('config');
 
 async function setCelebrityCount(name) {
+  console.log(config.DB.mongoURI);
   try {
     //DB에서 해당 이름에 해당하는 document가 있는지 확인.
     let result = await Celebrity.findOne({ name: name });
