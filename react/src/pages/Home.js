@@ -12,7 +12,6 @@ class Home extends React.Component {
 
 
     render() {
-        console.log(this.props);
         return (
             <div class="listpage">
                 <h2>총있으면 쐈다</h2>

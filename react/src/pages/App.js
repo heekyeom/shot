@@ -23,7 +23,6 @@ class App extends React.Component {
     }
 
     handlePage() {
-        console.log(this.state.page);
         switch (this.state.page) {
             case 'Home':
                 return <Home page={this.changePage}/>

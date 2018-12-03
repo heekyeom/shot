@@ -11,5 +11,6 @@
 
   "content_security_policy":"script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'",
 
-  "permissions": ["tabs", "storage", "activeTab", "http://*/*", "https://*/*"]
+  "permissions": ["tabs", "storage", "activeTab", "http://*/*", "https://*/*"],
+  "optional_permissions": ["https://sam-hap.herokuapp.com/*"]
 }
