@@ -12,11 +12,13 @@ class Home extends React.Component {
 
 
     render() {
-        console.log(this.props);
         return (
             <div class="listpage">
                 <h2>총있으면 쐈다</h2>
-                <ButtonExampleCircular page={this.props.page}/>
+                <div className="SettingButton">
+                    <ButtonExampleCircular page={this.props.page}/>
+                </div>
+                
                 <Search />
                 <DividerBar />
                 <ListExampleSelection page={this.props.page}/>
