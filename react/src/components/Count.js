@@ -10,11 +10,11 @@ const Count = () => (
       </Statistic>
       <Statistic>
         <Statistic.Value>312</Statistic.Value>
-        <Statistic.Label>Week</Statistic.Label>
+        <Statistic.Label>Month</Statistic.Label>
       </Statistic>
       <Statistic>
         <Statistic.Value>8319</Statistic.Value>
-        <Statistic.Label>Month</Statistic.Label>
+        <Statistic.Label>Year</Statistic.Label>
       </Statistic>
     </Statistic.Group>
   </div>

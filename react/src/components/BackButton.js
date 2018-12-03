@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
-export default class Button extends Component {
+export default class BackButton extends Component {
   change=()=>{
     this.props.page('Home');
   }
