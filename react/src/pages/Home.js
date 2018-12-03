@@ -14,16 +14,18 @@ class Home extends React.Component {
     render() {
         return (
             <div class="listpage">
+
                 <h2>총있으면 쐈다</h2>
                 <div className="SettingButton">
-                    <ButtonExampleCircular page={this.props.page}/>
+                    <ButtonExampleCircular page={this.props.page} />
                 </div>
-                
+
                 <Search />
                 <DividerBar />
-                <ListExampleSelection page={this.props.page}/>
+                <ListExampleSelection page={this.props.page} name={this.props.name}/>
                 <DividerBar />
                 <Toggle />
+
             </div>
         );
     }

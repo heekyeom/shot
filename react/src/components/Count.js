@@ -7,39 +7,45 @@ export default class Count extends Component {
     super(props);
 
     this.state = {
-      countdata : {dailyShot:[],monthShot:[],yearShot:[{}]}
+      data: { dailyShot: [], monthShot: [], yearShot: [{}] }
+      // data: [{ dailyShot: [] }],
     };
-    // this.loadDetailData()
+    this.loadDetailData()
   }
 
-  // loadDetailData = () => {
-  //   const parent = this;
-  //   request(`https://sam-hap.herokuapp.com/ranking/:${this.state.name}`, function (error, response, body) {
-  //     body = JSON.parse(body);
-  //     console.log(body);
-  //     parent.setState({
-  //       countdata : body
-  //     });
-  //   });
-  // }
+  loadDetailData = () => {
+    const parent = this;
+    request(`https://sam-hap.herokuapp.com/detail/아이유`, function (error, response, body) {
+      body = JSON.parse(body);
+      console.log(body);
+      parent.setState({
+        data: body
+      });
+    });
+  }
   render() {
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
     return (
       <div class="Count">
-    <Statistic.Group>
-      <Statistic>
-        {/* <Statistic.Value>{this.state.countdata.dailyShot[3]}</Statistic.Value> */}
-        <Statistic.Label>Today</Statistic.Label>
-      </Statistic>
-      {/* <Statistic>
-        <Statistic.Value>{this.state.countdata.monthShot[12]}</Statistic.Value>
-        <Statistic.Label>Month</Statistic.Label>
-      </Statistic>
-      <Statistic>
-        <Statistic.Value>{this.state.countdata.yearshot[0].shot}</Statistic.Value>
-        <Statistic.Label>Year</Statistic.Label>
-      </Statistic> */}
-    </Statistic.Group>
-  </div>
+        <Statistic.Group>
+          <Statistic>
+            <Statistic.Value>{this.state.data.dailyShot[dd]}</Statistic.Value>
+            <Statistic.Label>Today</Statistic.Label>
+          </Statistic>
+          <Statistic>
+            <Statistic.Value>{this.state.data.monthShot[mm]}</Statistic.Value>
+            <Statistic.Label>Month</Statistic.Label>
+          </Statistic>
+          <Statistic>
+            <Statistic.Value>{this.state.data.yearShot[0]['shot']}</Statistic.Value>
+            <Statistic.Label>Year</Statistic.Label>
+          </Statistic>
+        </Statistic.Group>
+      </div>
     )
   }
 }

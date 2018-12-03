@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { List, FeedExtra } from 'semantic-ui-react'
+import { List} from 'semantic-ui-react'
 
 var request = require('request');
 
@@ -24,20 +24,17 @@ class ListExampleSelection extends Component {
     });
   }
 
-  change = () => {
+  handleData = () => {
     this.props.page('ShotDetail');
+    // this.props.name('IU'); // 다시 테스트
   }
 
-  // handleName = (name)=>{
-  //   this.props.page('')
-  // }
 
   render() {
     let i = 1;
     const list = this.state.data.map(d => {
       return (
-        // <List.Item onClick={this.change} onClick={this.handleName} >
-        <List.Item onClick={this.change}>
+        <List.Item onClick={this.handleData}>
           <List.Content>
             <List.Header>
               <div><pre class="prefront">{i++}. {d.name}</pre></div><div><pre class="preback">{d.dailyShot}</pre></div>
