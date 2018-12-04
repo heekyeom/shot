@@ -15,7 +15,7 @@ class Home extends React.Component {
         return (
             <div class="listpage">
 
-                <h2>총있으면 쐈다</h2>
+                <h1>총있음 쐈다</h1>
                 <div className="SettingButton">
                     <ButtonExampleCircular page={this.props.page} />
                 </div>
