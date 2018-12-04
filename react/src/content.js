@@ -80,7 +80,7 @@ function animateBullet(event) {
       if (httpRequest.readyState === 4) {
         if (httpRequest.status === 200) {
           const result = JSON.parse(httpRequest.response);
-          alert(result.faces[0].celebrity.value);
+          alert(result.faces[0].celebrity.value+'를(을) 쏘셨어요!');
         } else {
           alert('이미지를 찾을 수 없거나 사진에 얼굴이 없나봐요');
         }
