@@ -28,6 +28,13 @@
         "mac": "Command+Shift+A"
       },
       "description": "Toggle shot"
+    },
+    "play-shot": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "For fun shot"
     }
   },
   "version": "0.1",

@@ -18,10 +18,11 @@ const weaponContainer = document.createElement("div");
 })();
 
 let toggle_on = false;
+let play_on = false;
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.message === "toggle_shot") {
-    if (toggle_on) {
+    if (toggle_on && !play_on) {
       //켜졌을때 끄는거
       document.querySelector("*").style.cursor = ""; // 1. 마우스 커서를 보여주고
       weaponContainer.style.display = "none"; // 2. 무기를 화면상에서 없애고
@@ -32,13 +33,39 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       document.onmousedown = null; // 4. 마우스 클릭 이벤트를 삭제한다.
       
       toggle_on = false;
-    } else {
+    } else if(!toggle_on && !play_on) {
       //꺼졌을때 켜는거
       document.querySelector("*").style.cursor = "none"; // 1. 마우스 커서를 없애고
       weaponContainer.style.display = ""; // 2. 무기를 화면상에 보여주고
       document.onmousedown = animateBullet; // 3. 마우스 클릭시 bullet을 찍어주는 이벤트를 등록.
       
       toggle_on = true;
+    } else{
+      alert('PLAY 모드를 꺼주세요!');
+    }
+  }
+  if (request.message === "play_shot") {
+    console.log('request접수');
+    if (play_on && !toggle_on) {
+      //켜졌을때 끄는거
+      document.querySelector("*").style.cursor = ""; // 1. 마우스 커서를 보여주고
+      weaponContainer.style.display = "none"; // 2. 무기를 화면상에서 없애고
+      document.querySelectorAll(".bullet-container").forEach(e => {
+        //3. bullet들을 지운다.
+        e.remove();
+      });
+      document.onmousedown = null; // 4. 마우스 클릭 이벤트를 삭제한다.
+      
+      play_on = false;
+    } else if(!play_on && !toggle_on) {
+      //꺼졌을때 켜는거
+      document.querySelector("*").style.cursor = "none"; // 1. 마우스 커서를 없애고
+      weaponContainer.style.display = ""; // 2. 무기를 화면상에 보여주고
+      document.onmousedown = animateBulletFun; // 3. 마우스 클릭시 bullet을 찍어주는 이벤트를 등록.
+      
+      play_on = true;
+    } else{
+      alert('사격 모드를 꺼주세요!');
     }
   }
 });
@@ -72,6 +99,23 @@ function animateBullet(event) {
     alert("이미지 태그가 아니에요!");
   }
 
+  const bulletMark = document.createElement("div");
+  bulletMark.className = "bullet-container";
+  ReactDOM.render(<Bullet />, bulletMark);
+  document.body.appendChild(bulletMark);
+
+  const imgWidth = bulletMark.clientWidth;
+  const imgHeight = bulletMark.clientHeight;
+
+  bulletMark.style.left = event.pageX - imgWidth / 2 + 1 + "px";
+  bulletMark.style.top = event.pageY - imgHeight / 2 + 1 + "px";
+}
+
+//JUST FOR FUN
+function animateBulletFun(event) {
+
+  event.preventDefault();
+  
   const bulletMark = document.createElement("div");
   bulletMark.className = "bullet-container";
   ReactDOM.render(<Bullet />, bulletMark);
