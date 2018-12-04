@@ -15,6 +15,7 @@ class App extends React.Component {
         };
 
     }
+
     changePage = (pageId) => {
         this.setState({
             page: pageId,

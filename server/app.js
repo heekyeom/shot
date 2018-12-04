@@ -1,3 +1,4 @@
+const home=require('./routes/home');
 const recognition=require('./routes/recognition');
 const ranking=require('./routes/ranking');
 const detail=require('./routes/detail');
@@ -10,7 +11,6 @@ const upload=multer();
 const express=require('express');
 const app=express();
 
-
 mongoose.connect(config.DB.mongoURI, { useNewUrlParser: true })
     .then(() => console.log(`Connected to mongoDB`))
     .catch(error => console.error(error.message));
@@ -19,6 +19,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(upload.single('image')); //browser로 부터 받은 form-data를 처리하는 middleware.
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+app.use(express.static('public'));
+
+app.use(home);
 app.use('/recognition',recognition);  //완료
 app.use('/ranking',ranking);  //완료
 app.use('/detail',detail);  //완료
