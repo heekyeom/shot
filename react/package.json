@@ -48,8 +48,14 @@
     "react-dev-utils": "^6.1.1",
     "react-dom": "^16.6.3",
     "react-router": "^4.3.1",
+<<<<<<< HEAD
+    "react-scripts": "2.1.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+=======
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
+>>>>>>> eb62dc64e2865d9b8b67120f51e16c4d32f561fd
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.83.0",
     "style-loader": "0.23.0",

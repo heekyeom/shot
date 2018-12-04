@@ -86,11 +86,16 @@
 .Count{
     margin-left: 40px;
 }
-.ui.card{
+/* .ui.card{
     left: 10px;
-}
+} */
 
 .ShotDetail2{
     position: relative;
     top: -32px;
 }
+
+.root{
+    overflow: hidden;
+}
+
