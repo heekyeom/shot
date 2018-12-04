@@ -1,6 +1,6 @@
 const config=require('config');
 
-//Request로 구현
+// Request로 구현
 const cfr = {
   CLIENT_ID: config.faceRecognition.naverClova.clientID,
   CLIENT_SECRET: config.faceRecognition.naverClova.clientSecret,

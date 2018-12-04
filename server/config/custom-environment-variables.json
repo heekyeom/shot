@@ -1,0 +1,12 @@
+{
+    "DB":{
+        "mongoURI":"MONGO_URI"
+    },
+    "faceRecognition":{
+        "naverClova":{
+            "clientID":"CFR_CLIENT_ID",
+            "clientSecret":"CFR_CLIENT_SECRET",
+            "url":"CFR_API_URL"
+        }
+    }
+}
