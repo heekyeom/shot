@@ -1,16 +1,36 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "GunShot",
+  "name": "Would shot if I have a gun",
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "index.html",
-    "default_title": "React Ext",
-    "default_icon":"logo.png"
+    "default_title": "GunShot",
+    "default_icon": "logo.png"
   },
-  "version": "1.0",
-
-  "content_security_policy":"script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'",
-
-  "permissions": ["tabs", "storage", "activeTab", "http://*/*", "https://*/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "web_accessible_resources": [
+    "resource/weapon/*.png",
+    "resource/weapon_mark/*.png"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["/static/css/content.css","/static/css/3.chunk.css"],
+      "js": ["/static/js/0.chunk.js", "/static/js/3.chunk.js", "/static/js/content.js"]
+    }
+  ],
+  "commands": {
+    "toggle-shot": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "Toggle shot"
+    }
+  },
+  "version": "0.1",
+  "content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'",
   "optional_permissions": ["https://sam-hap.herokuapp.com/*"]
 }

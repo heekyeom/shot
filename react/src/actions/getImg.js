@@ -10,4 +10,3 @@ const clickedTag=async (event)=>{
     console.log(src);
     requestRecognition(src);
 }
-
