@@ -1,47 +1,53 @@
 import React, { Component } from 'react'
-import { List, FeedExtra } from 'semantic-ui-react'
+import { List} from 'semantic-ui-react'
 
 var request = require('request');
 
-// var url = require('url');
-// var qs = require('querystring');
-
-// var data = async () => {
-//   await request('https://sam-hap.herokuapp.com/ranking/', function (error, response, body) {
-//     console.log('error:', error); // Print the error if one occurred
-//     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-//     console.log('body:', body); // Print the HTML for the Google homepage.    
-//   });
-// }
-var data;
-request('https://sam-hap.herokuapp.com/ranking/', function (error, response, body) {
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    console.log('body:', body); // Print the HTML for the Google homepage.
-    data = JSON.parse(body);
-  });
-console.log(data);
-// console.log(data.name);
-
 class ListExampleSelection extends Component {
-  change = () => {
-    this.props.page('ShotDetail');
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [{ dailyShot: [] }],
+      
+    };
+    this.loadData()
   }
 
-  
+  loadData = () => {
+    const parent = this;
+    request('https://sam-hap.herokuapp.com/ranking/', function (error, response, body) {
+      body = JSON.parse(body);
+      parent.setState({
+        data: body
+      });
+    });
+  }
+
+  handleData = () => {
+    this.props.page('ShotDetail');
+    // this.props.name('IU'); // 다시 테스트
+  }
+
+
   render() {
-    return (
-      <List selection verticalAlign='middle'>
-        <List.Item>
-          <List.Content onClick={this.change}>
+    let i = 1;
+    const list = this.state.data.map(d => {
+      return (
+        <List.Item onClick={this.handleData}>
+          <List.Content>
             <List.Header>
-              <pre class="preblack">                  1591</pre>
+              <div><pre class="prefront">{i++}. {d.name}</pre></div><div><pre class="preback">{d.dailyShot}</pre></div>
             </List.Header>
           </List.Content>
         </List.Item>
+      )
+    })
 
+    return (
 
-
+      <List selection verticalAlign='middle'>
+        {list}
       </List>
     )
   }

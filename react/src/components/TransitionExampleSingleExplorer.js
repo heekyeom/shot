@@ -39,12 +39,12 @@ export default class TransitionExampleSingleExplorer extends Component {
             type='range'
             value={duration}
           />
-          <Form.Button content={visible ? '저장' : 'Mount'} onClick={this.handleVisibility} />
+          <Form.Button content={visible ? '저장' : '저장완료'} onClick={this.handleVisibility} />
         </Grid.Column>
 
         <Grid.Column>
           <Transition.Group animation={animation} duration={duration}>
-            {visible && <Image centered size='small' src='https://react.semantic-ui.com/images/leaves/4.png' />}
+            {visible && <Image centered size='small' src='/images/gun_sample.png' />}
           </Transition.Group>
         </Grid.Column>
       </Grid>
