@@ -20,8 +20,9 @@ class ShotDetail extends React.Component {
                     <CardExampleCardProps name={this.props.name} />
                     <ProgressExampleIndicating />
                 </div>
+                <div><br></br></div>
             </div>
-
+            
         );
     }
 }
